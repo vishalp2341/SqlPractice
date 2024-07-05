@@ -1,0 +1,514 @@
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(40) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| Book_price            | float       | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
+| Return_date           | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+
+Inserting values
+
+INSERT INTO library (Author_name, Book_name, Book_price, Customer_name, Customer_phone_number, Received_date, Return_date) VALUES
+('Narayana Murthy', 'A Better India: A Better World', 2000, 'James', '1122333445', '2009-01-14', '2009-03-21'),
+('E.M. Foster', 'A Passage to India', 1000, 'Robert', '1422333445', '2009-01-10', '2009-01-20'),
+('Amrita Pritam', 'A Revenue Stamp', 1500, 'John', '1422333445', '2009-02-10', '2009-02-11'),
+('Amrita Pritam', 'Death of a City', 800, 'Michael', '3122333445', '2010-02-10', '2010-02-16'),
+('Amrita Pritam', 'Pinjar', 1000, 'David', '2142333445', '2010-02-11', '2010-02-21'),
+('Vikram Seth', 'A Suitable Boy', 2500, 'William', '4122333445', '2011-04-11', '2011-05-01'),
+('Charles Darwin', 'A Tale of Two Cities', 3000, 'Richard', '5222333445', '2012-01-10', '2012-01-16'),
+('David Copperfield', 'Charles Darwin', 1200, 'Joseph', '6522333445', '2012-01-10', '2012-02-10'),
+('Charles Darwin', 'Oliver Twist', 500, 'Thomas', '7122333445', '2013-08-10', '2013-08-10'),
+('Charles Darwin', 'Origin of Species', 1700, 'Charles', '3125333445', '2015-05-29', '2015-06-20'),
+('Louis Fisher', 'A Week with Gandhi', 800, 'Christopher', '1182333445', '2015-05-29', '2015-07-01'),
+('Guy de Maupassant', 'A Womans Life', 2000, 'Daniel', '9122333445', '2016-12-18', '2016-12-19'),
+('Mohan Rakesh', 'Aadhe Adhure', 2500, 'Matthew', '9125333445', '2016-12-19', '2016-12-29'),
+('Arthur Conan Doyle', 'Adventures of Sherlock Holmes', 1000, 'Anthony', '9992333445', '2017-01-01', '2017-02-15'),
+('Mark Twain', 'Adventures of Tom Sawyer', 700, 'Mark', '4182333445', '2018-11-01', '2018-11-12'),
+('Abul Fazl', 'Ain - i - Akbari', 800, 'Donald', '5223333445', '2019-01-01', '2019-01-10'),
+('Abul Fazl', 'Akbarnama', 1000, 'Steven', '4922333445', '2020-02-10', '2020-03-01'),
+('Lewis Carrol', 'Alice in Wonderland', 1800, 'Paul', '1112333445', '2022-01-10', '2022-01-20'),
+('Bhagat Singh', 'An Introduction to Dreamland', 2000, 'Andrew', '1772333445', '2022-06-18', '2022-07-18'),
+('Bankim Chandra Chatterjee', 'Anand Math', 2000, 'Joshua', '5552333445', '2022-07-19', '2022-07-16'),
+('Leo Tolstoy', 'Anna Karenina', 1500, 'Kenneth', '6622333445', '2022-07-19', '2022-08-10'),
+('Leo Tolstoy', 'War and Peace', 1000, 'Kevin', '8822333445', '2022-09-11', '2022-10-11'),
+('George Bernard Shaw', 'Apple Cart', 1000, 'Brian', '9922333445', '2022-11-19', '2022-11-21'),
+('George Bernard Shaw', 'Arms and the Man', 3000, 'George', '1122443445', '2022-11-19', '2022-12-20'),
+('George Bernard Shaw', 'Man and Superman', 2600, 'Timothy', '1177333445', '2022-12-10', '2022-12-11'),
+('Jules Verne', 'Around the World in Eighty Days', 800, 'Ronald', '5522333445', '2023-01-10', '2023-01-19'),
+('Kautilya', 'Arthshastra', 500, 'Edward', '1002333445', '2023-02-02', '2023-02-05'),
+('Gunnar Myrdal', 'Asian Drama', 1000, 'Jason', '7722333445', '2023-04-10', '2023-04-16'),
+('Yogananda Paramhans', 'Autobiography of a Yogi', 1000, 'Jeffrey', '1122333488', '2023-04-11', '2023-04-13'),
+('Babur', 'Baburnama', 2500, 'Ryan', '1122333466', '2023-05-01', '2023-05-14');
+
+
+mysql> select * from library;
++---------------------------+---------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name               | book_name                       | Book_price | Customer_name | Customer_phone_number | Received_date | Return_date |
++---------------------------+---------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Narayana Murthy           | A Better India: A Better World  |       2000 | James         |            1122333445 | 2009-01-14    | 2009-03-21  |
+| E.M. Foster               | A Passage to India              |       1000 | Robert        |            1422333445 | 2009-01-10    | 2009-01-20  |
+| Amrita Pritam             | A Revenue Stamp                 |       1500 | John          |            1422333445 | 2009-02-10    | 2009-02-11  |
+| Amrita Pritam             | Death of a City                 |        800 | Michael       |            3122333445 | 2010-02-10    | 2010-02-16  |
+| Amrita Pritam             | Pinjar                          |       1000 | David         |            2142333445 | 2010-02-11    | 2010-02-21  |
+| Vikram Seth               | A Suitable Boy                  |       2500 | William       |            4122333445 | 2011-04-11    | 2011-05-01  |
+| Charles Darwin            | A Tale of Two Cities            |       3000 | Richard       |            5222333445 | 2012-01-10    | 2012-01-16  |
+| David Copperfield         | Charles Darwin                  |       1200 | Joseph        |            6522333445 | 2012-01-10    | 2012-02-10  |
+| Charles Darwin            | Oliver Twist                    |        500 | Thomas        |            7122333445 | 2013-08-10    | 2013-08-10  |
+| Charles Darwin            | Origin of Species               |       1700 | Charles       |            3125333445 | 2015-05-29    | 2015-06-20  |
+| Louis Fisher              | A Week with Gandhi              |        800 | Christopher   |            1182333445 | 2015-05-29    | 2015-07-01  |
+| Guy de Maupassant         | A Womans Life                   |       2000 | Daniel        |            9122333445 | 2016-12-18    | 2016-12-19  |
+| Mohan Rakesh              | Aadhe Adhure                    |       2500 | Matthew       |            9125333445 | 2016-12-19    | 2016-12-29  |
+| Arthur Conan Doyle        | Adventures of Sherlock Holmes   |       1000 | Anthony       |            9992333445 | 2017-01-01    | 2017-02-15  |
+| Mark Twain                | Adventures of Tom Sawyer        |        700 | Mark          |            4182333445 | 2018-11-01    | 2018-11-12  |
+| Abul Fazl                 | Ain - i - Akbari                |        800 | Donald        |            5223333445 | 2019-01-01    | 2019-01-10  |
+| Abul Fazl                 | Akbarnama                       |       1000 | Steven        |            4922333445 | 2020-02-10    | 2020-03-01  |
+| Lewis Carrol              | Alice in Wonderland             |       1800 | Paul          |            1112333445 | 2022-01-10    | 2022-01-20  |
+| Bhagat Singh              | An Introduction to Dreamland    |       2000 | Andrew        |            1772333445 | 2022-06-18    | 2022-07-18  |
+| Bankim Chandra Chatterjee | Anand Math                      |       2000 | Joshua        |            5552333445 | 2022-07-19    | 2022-07-16  |
+| Leo Tolstoy               | Anna Karenina                   |       1500 | Kenneth       |            6622333445 | 2022-07-19    | 2022-08-10  |
+| Leo Tolstoy               | War and Peace                   |       1000 | Kevin         |            8822333445 | 2022-09-11    | 2022-10-11  |
+| George Bernard Shaw       | Apple Cart                      |       1000 | Brian         |            9922333445 | 2022-11-19    | 2022-11-21  |
+| George Bernard Shaw       | Arms and the Man                |       3000 | George        |            1122443445 | 2022-11-19    | 2022-12-20  |
+| George Bernard Shaw       | Man and Superman                |       2600 | Timothy       |            1177333445 | 2022-12-10    | 2022-12-11  |
+| Jules Verne               | Around the World in Eighty Days |        800 | Ronald        |            5522333445 | 2023-01-10    | 2023-01-19  |
+| Kautilya                  | Arthshastra                     |        500 | Edward        |            1002333445 | 2023-02-02    | 2023-02-05  |
+| Gunnar Myrdal             | Asian Drama                     |       1000 | Jason         |            7722333445 | 2023-04-10    | 2023-04-16  |
+| Yogananda Paramhans       | Autobiography of a Yogi         |       1000 | Jeffrey       |            1122333488 | 2023-04-11    | 2023-04-13  |
+| Babur                     | Baburnama                       |       2500 | Ryan          |            1122333466 | 2023-05-01    | 2023-05-14  |
++---------------------------+---------------------------------+------------+---------------+-----------------------+---------------+-------------+
+30 rows in set (0.00 sec)
+
+
+1. Write a query to display the author’s name, book 
+name and price by increasing the price of 1000 rupees
+for every book.
+
+mysql>  select Author_name, book_name, Book_price+1000 from library;
++---------------------------+---------------------------------+-----------------+
+| Author_name               | book_name                       | Book_price+1000 |
++---------------------------+---------------------------------+-----------------+
+| Narayana Murthy           | A Better India: A Better World  |            3000 |
+| E.M. Foster               | A Passage to India              |            2000 |
+| Amrita Pritam             | A Revenue Stamp                 |            2500 |
+| Amrita Pritam             | Death of a City                 |            1800 |
+| Amrita Pritam             | Pinjar                          |            2000 |
+| Vikram Seth               | A Suitable Boy                  |            3500 |
+| Charles Darwin            | A Tale of Two Cities            |            4000 |
+| David Copperfield         | Charles Darwin                  |            2200 |
+| Charles Darwin            | Oliver Twist                    |            1500 |
+| Charles Darwin            | Origin of Species               |            2700 |
+| Louis Fisher              | A Week with Gandhi              |            1800 |
+| Guy de Maupassant         | A Womans Life                   |            3000 |
+| Mohan Rakesh              | Aadhe Adhure                    |            3500 |
+| Arthur Conan Doyle        | Adventures of Sherlock Holmes   |            2000 |
+| Mark Twain                | Adventures of Tom Sawyer        |            1700 |
+| Abul Fazl                 | Ain - i - Akbari                |            1800 |
+| Abul Fazl                 | Akbarnama                       |            2000 |
+| Lewis Carrol              | Alice in Wonderland             |            2800 |
+| Bhagat Singh              | An Introduction to Dreamland    |            3000 |
+| Bankim Chandra Chatterjee | Anand Math                      |            3000 |
+| Leo Tolstoy               | Anna Karenina                   |            2500 |
+| Leo Tolstoy               | War and Peace                   |            2000 |
+| George Bernard Shaw       | Apple Cart                      |            2000 |
+| George Bernard Shaw       | Arms and the Man                |            4000 |
+| George Bernard Shaw       | Man and Superman                |            3600 |
+| Jules Verne               | Around the World in Eighty Days |            1800 |
+| Kautilya                  | Arthshastra                     |            1500 |
+| Gunnar Myrdal             | Asian Drama                     |            2000 |
+| Yogananda Paramhans       | Autobiography of a Yogi         |            2000 |
+| Babur                     | Baburnama                       |            3500 |
++---------------------------+---------------------------------+-----------------+
+30 rows in set (0.00 sec)
+
+2. Write a query to display the details of book by 
+reducing the price of 500 on every book which is 
+written by “Mohan Rakesh”
+
+mysql> select Author_name,book_name,Book_price-500 as Discounted,Customer_name,Customer_phone_number,Received_date,Return_date from library
+    -> where Author_name = "Mohan Rakesh";
++--------------+--------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name  | book_name    | Discounted | Customer_name | Customer_phone_number | Received_date | Return_date |
++--------------+--------------+------------+---------------+-----------------------+---------------+-------------+
+| Mohan Rakesh | Aadhe Adhure |       2000 | Matthew       |            9125333445 | 2016-12-19    | 2016-12-29  |
++--------------+--------------+------------+---------------+-----------------------+---------------+-------------+
+1 row in set (0.00 sec)
+
+
+ 3. Write a query to display details of book by giving the 
+discount of 20% on price for every book which is 
+written by “Narayana Murthy”.
+
+mysql> select Author_name,book_name,Book_price-(Book_price*20/100) as Discounted,Customer_name,Customer_phone_number,Received_date,Return_date from library
+    -> where Author_name = "Narayana Murthy";
++-----------------+--------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name     | book_name                      | Discounted | Customer_name | Customer_phone_number | Received_date | Return_date |
++-----------------+--------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Narayana Murthy | A Better India: A Better World |       1600 | James         |            1122333445 | 2009-01-14    | 2009-03-21  |
++-----------------+--------------------------------+------------+---------------+-----------------------+---------------+-------------+
+1 row in set (0.00 sec)
+
+4. Write a query to display details of book which are 
+written by “Vikram Seth”
+
+mysql> select * from library
+    -> where Author_name = "Vikram Seth";
++-------------+----------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name | book_name      | Book_price | Customer_name | Customer_phone_number | Received_date | Return_date |
++-------------+----------------+------------+---------------+-----------------------+---------------+-------------+
+| Vikram Seth | A Suitable Boy |       2500 | William       |            4122333445 | 2011-04-11    | 2011-05-01  |
++-------------+----------------+------------+---------------+-----------------------+---------------+-------------+
+1 row in set (0.00 sec)
+
+
+5. Write a query to display the customer’s name who has 
+purchased the books whose price is less than 1000 
+rupees.
+
+
+mysql> select Customer_name
+    -> from library
+    -> where
+    -> Book_price < 1000;
++---------------+
+| Customer_name |
++---------------+
+| Michael       |
+| Thomas        |
+| Christopher   |
+| Mark          |
+| Donald        |
+| Ronald        |
+| Edward        |
++---------------+
+7 rows in set (0.01 sec)
+
+
+
+
+6. Write a query to display the author’s name and book 
+name whose price is greater than 2500 rupees.
+
+
+
+mysql> select Author_name,
+    -> Book_name
+    -> from library
+    -> where
+    -> Book_price > 2500;
++---------------------+----------------------+
+| Author_name         | Book_name            |
++---------------------+----------------------+
+| Charles Darwin      | A Tale of Two Cities |
+| George Bernard Shaw | Arms and the Man     |
+| George Bernard Shaw | Man and Superman     |
++---------------------+----------------------+
+3 rows in set (0.00 sec)
+
+
+7. Write a query to display details of book whose price is 
+1000 rupees and which is written by the author “E.M. 
+Foster”.
+
+mysql> select *
+    -> from library
+    -> where
+    -> Book_price = 1000
+    -> and
+    -> Author_name = "E.M. Foster";
++-------------+--------------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name | book_name          | Book_price | Customer_name | Customer_phone_number | Received_date | Return_date |
++-------------+--------------------+------------+---------------+-----------------------+---------------+-------------+
+| E.M. Foster | A Passage to India |       1000 | Robert        |            1422333445 | 2009-01-10    | 2009-01-20  |
++-------------+--------------------+------------+---------------+-----------------------+---------------+-------------+
+1 row in set (0.00 sec)
+
+8. Write a query to display details of book which are 
+written by “Charles Darwin” either “Leo Tolstoy”.
+
+mysql> select *
+    -> from library
+    -> where
+    -> Author_name = "Charles Darwin"
+    -> or
+    -> Author_name = "Leo Tolstoy";
++----------------+----------------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name    | book_name            | Book_price | Customer_name | Customer_phone_number | Received_date | Return_date |
++----------------+----------------------+------------+---------------+-----------------------+---------------+-------------+
+| Charles Darwin | A Tale of Two Cities |       3000 | Richard       |            5222333445 | 2012-01-10    | 2012-01-16  |
+| Charles Darwin | Oliver Twist         |        500 | Thomas        |            7122333445 | 2013-08-10    | 2013-08-10  |
+| Charles Darwin | Origin of Species    |       1700 | Charles       |            3125333445 | 2015-05-29    | 2015-06-20  |
+| Leo Tolstoy    | Anna Karenina        |       1500 | Kenneth       |            6622333445 | 2022-07-19    | 2022-08-10  |
+| Leo Tolstoy    | War and Peace        |       1000 | Kevin         |            8822333445 | 2022-09-11    | 2022-10-11  |
++----------------+----------------------+------------+---------------+-----------------------+---------------+-------------+
+5 rows in set (0.00 sec)
+
+
+
+9. Write a query to display the details of book which is 
+written by “Amrita Pritam” either “Bhagat Singh” but 
+the price should be more than 1000 rupees.
+
+mysql> select *
+    -> from library
+    -> where
+    -> (Author_name = "Bhagat Singh"
+    -> or
+    -> Author_name = "Amrita Pritam")
+    -> and
+    -> Book_price>1000;
++---------------+------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name   | book_name                    | Book_price | Customer_name | Customer_phone_number | Received_date | Return_date |
++---------------+------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Amrita Pritam | A Revenue Stamp              |       1500 | John          |            1422333445 | 2009-02-10    | 2009-02-11  |
+| Bhagat Singh  | An Introduction to Dreamland |       2000 | Andrew        |            1772333445 | 2022-06-18    | 2022-07-18  |
++---------------+------------------------------+------------+---------------+-----------------------+---------------+-------------+
+2 rows in set (0.00 sec)
+
+
+10.Write a query to display the customer’s name 
+who has purchased the book after “2009-02-10” 
+before “2013-08-10”
+
+mysql> SELECT Customer_name
+    -> FROM library
+    -> WHERE Received_date BETWEEN '2009-02-10' AND '2013-08-10';
++---------------+
+| Customer_name |
++---------------+
+| John          |
+| Michael       |
+| David         |
+| William       |
+| Richard       |
+| Joseph        |
+| Thomas        |
++---------------+
+7 rows in set (0.00 sec)
+
+11. Write a query to display details of book whose 
+price is 1000, 2000 or 3000.
+
+mysql> select *
+    -> from library
+    -> where
+    -> Book_price in (1000,2000,3000);
++---------------------------+--------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name               | book_name                      | Book_price | Customer_name | Customer_phone_number | Received_date | Return_date |
++---------------------------+--------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Narayana Murthy           | A Better India: A Better World |       2000 | James         |            1122333445 | 2009-01-14    | 2009-03-21  |
+| E.M. Foster               | A Passage to India             |       1000 | Robert        |            1422333445 | 2009-01-10    | 2009-01-20  |
+| Amrita Pritam             | Pinjar                         |       1000 | David         |            2142333445 | 2010-02-11    | 2010-02-21  |
+| Charles Darwin            | A Tale of Two Cities           |       3000 | Richard       |            5222333445 | 2012-01-10    | 2012-01-16  |
+| Guy de Maupassant         | A Womans Life                  |       2000 | Daniel        |            9122333445 | 2016-12-18    | 2016-12-19  |
+| Arthur Conan Doyle        | Adventures of Sherlock Holmes  |       1000 | Anthony       |            9992333445 | 2017-01-01    | 2017-02-15  |
+| Abul Fazl                 | Akbarnama                      |       1000 | Steven        |            4922333445 | 2020-02-10    | 2020-03-01  |
+| Bhagat Singh              | An Introduction to Dreamland   |       2000 | Andrew        |            1772333445 | 2022-06-18    | 2022-07-18  |
+| Bankim Chandra Chatterjee | Anand Math                     |       2000 | Joshua        |            5552333445 | 2022-07-19    | 2022-07-16  |
+| Leo Tolstoy               | War and Peace                  |       1000 | Kevin         |            8822333445 | 2022-09-11    | 2022-10-11  |
+| George Bernard Shaw       | Apple Cart                     |       1000 | Brian         |            9922333445 | 2022-11-19    | 2022-11-21  |
+| George Bernard Shaw       | Arms and the Man               |       3000 | George        |            1122443445 | 2022-11-19    | 2022-12-20  |
+| Gunnar Myrdal             | Asian Drama                    |       1000 | Jason         |            7722333445 | 2023-04-10    | 2023-04-16  |
+| Yogananda Paramhans       | Autobiography of a Yogi        |       1000 | Jeffrey       |            1122333488 | 2023-04-11    | 2023-04-13  |
++---------------------------+--------------------------------+------------+---------------+-----------------------+---------------+-------------+
+14 rows in set (0.00 sec)
+
+12. Write a query to display details of book whose 
+price is not 15000,2500 or 3000.
+
+
+mysql> select *
+    -> from library
+    -> where
+    -> Book_price not in (15000,2500,3000);
++---------------------------+---------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Author_name               | book_name                       | Book_price | Customer_name | Customer_phone_number | Received_date | Return_date |
++---------------------------+---------------------------------+------------+---------------+-----------------------+---------------+-------------+
+| Narayana Murthy           | A Better India: A Better World  |       2000 | James         |            1122333445 | 2009-01-14    | 2009-03-21  |
+| E.M. Foster               | A Passage to India              |       1000 | Robert        |            1422333445 | 2009-01-10    | 2009-01-20  |
+| Amrita Pritam             | A Revenue Stamp                 |       1500 | John          |            1422333445 | 2009-02-10    | 2009-02-11  |
+| Amrita Pritam             | Death of a City                 |        800 | Michael       |            3122333445 | 2010-02-10    | 2010-02-16  |
+| Amrita Pritam             | Pinjar                          |       1000 | David         |            2142333445 | 2010-02-11    | 2010-02-21  |
+| David Copperfield         | Charles Darwin                  |       1200 | Joseph        |            6522333445 | 2012-01-10    | 2012-02-10  |
+| Charles Darwin            | Oliver Twist                    |        500 | Thomas        |            7122333445 | 2013-08-10    | 2013-08-10  |
+| Charles Darwin            | Origin of Species               |       1700 | Charles       |            3125333445 | 2015-05-29    | 2015-06-20  |
+| Louis Fisher              | A Week with Gandhi              |        800 | Christopher   |            1182333445 | 2015-05-29    | 2015-07-01  |
+| Guy de Maupassant         | A Womans Life                   |       2000 | Daniel        |            9122333445 | 2016-12-18    | 2016-12-19  |
+| Arthur Conan Doyle        | Adventures of Sherlock Holmes   |       1000 | Anthony       |            9992333445 | 2017-01-01    | 2017-02-15  |
+| Mark Twain                | Adventures of Tom Sawyer        |        700 | Mark          |            4182333445 | 2018-11-01    | 2018-11-12  |
+| Abul Fazl                 | Ain - i - Akbari                |        800 | Donald        |            5223333445 | 2019-01-01    | 2019-01-10  |
+| Abul Fazl                 | Akbarnama                       |       1000 | Steven        |            4922333445 | 2020-02-10    | 2020-03-01  |
+| Lewis Carrol              | Alice in Wonderland             |       1800 | Paul          |            1112333445 | 2022-01-10    | 2022-01-20  |
+| Bhagat Singh              | An Introduction to Dreamland    |       2000 | Andrew        |            1772333445 | 2022-06-18    | 2022-07-18  |
+| Bankim Chandra Chatterjee | Anand Math                      |       2000 | Joshua        |            5552333445 | 2022-07-19    | 2022-07-16  |
+| Leo Tolstoy               | Anna Karenina                   |       1500 | Kenneth       |            6622333445 | 2022-07-19    | 2022-08-10  |
+| Leo Tolstoy               | War and Peace                   |       1000 | Kevin         |            8822333445 | 2022-09-11    | 2022-10-11  |
+| George Bernard Shaw       | Apple Cart                      |       1000 | Brian         |            9922333445 | 2022-11-19    | 2022-11-21  |
+| George Bernard Shaw       | Man and Superman                |       2600 | Timothy       |            1177333445 | 2022-12-10    | 2022-12-11  |
+| Jules Verne               | Around the World in Eighty Days |        800 | Ronald        |            5522333445 | 2023-01-10    | 2023-01-19  |
+| Kautilya                  | Arthshastra                     |        500 | Edward        |            1002333445 | 2023-02-02    | 2023-02-05  |
+| Gunnar Myrdal             | Asian Drama                     |       1000 | Jason         |            7722333445 | 2023-04-10    | 2023-04-16  |
+| Yogananda Paramhans       | Autobiography of a Yogi         |       1000 | Jeffrey       |            1122333488 | 2023-04-11    | 2023-04-13  |
++---------------------------+---------------------------------+------------+---------------+-----------------------+---------------+-------------+
+25 rows in set (0.00 sec)
+
+
+
+13. Write a query to display unique author name’s 
+whose name starts with “A” or “C”.
+
+mysql> select Author_name
+    -> from
+    -> library
+    -> where
+    -> Author_name like "A%" or
+    -> Author_name like "C%";
++--------------------+
+| Author_name        |
++--------------------+
+| Amrita Pritam      |
+| Amrita Pritam      |
+| Amrita Pritam      |
+| Charles Darwin     |
+| Charles Darwin     |
+| Charles Darwin     |
+| Arthur Conan Doyle |
+| Abul Fazl          |
+| Abul Fazl          |
++--------------------+
+9 rows in set (0.00 sec)
+
+
+14. Write a query to display the customer name’s 
+whose name starts with “T” and ends with “S”.
+
+mysql> select Customer_name
+    -> from
+    -> library
+    -> where
+    -> Customer_name like "T%S";
++---------------+
+| Customer_name |
++---------------+
+| Thomas        |
++---------------+
+1 row in set (0.00 sec)
+
+
+15. Write a query to display the book name’s which 
+have “ven” or “ies” in it.
+
+mysql> select Book_name from library
+    -> where Book_name like "%ven%"
+    -> or Book_name like "%ies%";
++-------------------------------+
+| Book_name                     |
++-------------------------------+
+| A Revenue Stamp               |
+| A Tale of Two Cities          |
+| Origin of Species             |
+| Adventures of Sherlock Holmes |
+| Adventures of Tom Sawyer      |
++-------------------------------+
+5 rows in set (0.00 sec)
+
+
+16. Write a query to display the book name’s which 
+contains 10 characters only.
+
+mysql> select Book_name from library
+    -> where Book_name like "__________";
++------------+
+| Book_name  |
++------------+
+| Anand Math |
+| Apple Cart |
++------------+
+2 rows in set (0.00 sec)
+
+
+17. Write a query to display author name and book 
+name’s which are purchased by “Kevin” or either 
+“Json”.
+mysql> select Book_name,
+    -> Author_name
+    -> from library
+    -> where
+    -> Customer_name = "Jason"
+    -> or
+    -> Customer_name = "Kevin";
++---------------+---------------+
+| Book_name     | Author_name   |
++---------------+---------------+
+| War and Peace | Leo Tolstoy   |
+| Asian Drama   | Gunnar Myrdal |
++---------------+---------------+
+2 rows in set (0.00 sec)
+
+ 18. Write a query to display the unique customer 
+name’s who purchased the book’s which is written by 
+“Charles Darwin” or “Leo Tolstoy” and price should be 
+more than 1000 and sort the result in the descending 
+order based on the customer names.
+
+
+mysql> SELECT DISTINCT Customer_name
+    -> FROM library
+    -> WHERE (Author_name = 'Charles Darwin' OR Author_name = 'Leo Tolstoy')
+    -> AND Book_price > 1000
+    -> ORDER BY Customer_name DESC;
++---------------+
+| Customer_name |
++---------------+
+| Richard       |
+| Kenneth       |
+| Charles       |
++---------------+
+3 rows in set (0.00 sec)
+
+
+
+19. Write a query to display the received date and 
+end of the book which is purchased by “Anthony” and 
+price is 1000 or above.
+
+
+mysql> select Received_date,Return_date
+    -> from library
+    -> where
+    -> Customer_name="Anthony"
+    -> and
+    -> Book_price >=1000;
++---------------+-------------+
+| Received_date | Return_date |
++---------------+-------------+
+| 2017-01-01    | 2017-02-15  |
++---------------+-------------+
+1 row in set (0.00 sec)
+
+
+
+
+20. Write a query to display the author’s name and 
+book name, which is purchased by a customer whose 
+name starts with “W” or “S” and sort the result in the 
+ascending order based on the author’s name.
+
+
+mysql> select Author_name,Book_name
+    -> from library where
+    -> (Customer_name like "W%" or Customer_name like "S%")
+    -> order by Author_name;
++-------------+----------------+
+| Author_name | Book_name      |
++-------------+----------------+
+| Abul Fazl   | Akbarnama      |
+| Vikram Seth | A Suitable Boy |
++-------------+----------------+
+2 rows in set (0.00 sec)
