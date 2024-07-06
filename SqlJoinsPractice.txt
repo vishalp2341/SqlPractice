@@ -1,0 +1,171 @@
+
+CREATE TABLE DEPARTMENT (
+    DEPARTMENT_ID INT PRIMARY KEY,
+    NAME VARCHAR (255) NOT NULL
+);
+
+
+INSERT INTO DEPARTMENT (DEPARTMENT_ID, NAME) VALUES (1, 'HR'), (2, 'MARKETING'), (3, 'FINANCE'), (4, 'IT'), (5, 'OPERATIONS'), (6, 'LOGISTICS');
+
+mysql> desc department;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| DEPARTMENT_ID | int          | NO   | PRI | NULL    |       |
+| NAME          | varchar(255) | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select * from department;
++---------------+------------+
+| DEPARTMENT_ID | NAME       |
++---------------+------------+
+|             1 | HR         |
+|             2 | MARKETING  |
+|             3 | FINANCE    |
+|             4 | IT         |
+|             5 | OPERATIONS |
+|             6 | LOGISTICS  |
++---------------+------------+
+6 rows in set (0.01 sec)
+
+CREATE TABLE EMPLOYEE (
+    E_ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(255) NOT NULL,
+    LAST_NAME VARCHAR(255) NOT NULL,
+    DEPARTMENT_ID INT,
+    FOREIGN KEY (DEPARTMENT_ID) REFERENCES    DEPARTMENT(DEPARTMENT_ID));
+
+
+INSERT INTO EMPLOYEE(E_ID, FIRST_NAME, LAST_NAME, DEPARTMENT_ID) VALUES (1, 'AMIT', 'GUPTA', 1), (2, 'PRIYA', 'SHARMA', 2), (3, 'RAHUL', 'SINGH', 3), (4, 'MEERA', 'PATEL', 4), (5, 'ARJUN', 'KUMAR', 1), (6, 'ANJALI', 'DESHPANDE', 2), (7, 'VIVEK', 'MALHOTRA', 3), (8, 'RIYA', 'NAIR', NULL), (9, 'SURESH', 'MENON', NULL);
+
+mysql> desc employee;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| E_ID          | int          | NO   | PRI | NULL    |       |
+| FIRST_NAME    | varchar(255) | NO   |     | NULL    |       |
+| LAST_NAME     | varchar(255) | NO   |     | NULL    |       |
+| DEPARTMENT_ID | int          | YES  | MUL | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee;
++------+------------+-----------+---------------+
+| E_ID | FIRST_NAME | LAST_NAME | DEPARTMENT_ID |
++------+------------+-----------+---------------+
+|    1 | AMIT       | GUPTA     |             1 |
+|    2 | PRIYA      | SHARMA    |             2 |
+|    3 | RAHUL      | SINGH     |             3 |
+|    4 | MEERA      | PATEL     |             4 |
+|    5 | ARJUN      | KUMAR     |             1 |
+|    6 | ANJALI     | DESHPANDE |             2 |
+|    7 | VIVEK      | MALHOTRA  |             3 |
+|    8 | RIYA       | NAIR      |          NULL |
+|    9 | SURESH     | MENON     |          NULL |
++------+------------+-----------+---------------+
+9 rows in set (0.00 sec)
+
+CREATE TABLE COLOUR
+(
+ID INT PRIMARY KEY,
+COLOUR VARCHAR(10)
+);
+
+INSERT INTO COLOUR VALUES(1,"RED"), (2,"GREEN"),(3,"BLUE");
+
+mysql> desc colour
+    -> ;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| ID     | int         | NO   | PRI | NULL    |       |
+| COLOUR | varchar(10) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+mysql> select * from colour;
++----+--------+
+| ID | COLOUR |
++----+--------+
+|  1 | RED    |
+|  2 | GREEN  |
+|  3 | BLUE   |
++----+--------+
+3 rows in set (0.03 sec)
+
+
+CREATE TABLE PRODUCT
+(
+ID INT PRIMARY KEY,
+PRODUCT VARCHAR(15)
+);
+
+INSERT INTO PRODUCT VALUES(1,"CAP"), (2,"SHIRT"), (3,"PANT");
+
+
+CREATE TABLE PRODUCT
+(
+ID INT PRIMARY KEY,
+PRODUCT VARCHAR(15)
+);
+
+INSERT INTO PRODUCT VALUES(1,"CAP"), (2,"SHIRT"), (3,"PANT");
+
+mysql> desc product;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| ID      | int         | NO   | PRI | NULL    |       |
+| PRODUCT | varchar(15) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select * from product;
++----+---------+
+| ID | PRODUCT |
++----+---------+
+|  1 | CAP     |
+|  2 | SHIRT   |
+|  3 | PANT    |
++----+---------+
+3 rows in set (0.00 sec)
+
+
+
+CREATE TABLE employee_manager (
+  eid INT PRIMARY KEY,
+  name VARCHAR(255),
+  mid INT
+);
+
+INSERT INTO employee_manager (eid, name, mid)
+VALUES (1, 'Amit', 4),
+       (2, 'Bhavana', 4),
+       (3, 'Chetan', 5),
+       (4, 'Deepak', NULL),
+       (5, 'Ekta', NULL),
+       (6, 'Farhan', 5);
+
+mysql> desc employee_manager;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| eid   | int          | NO   | PRI | NULL    |       |
+| name  | varchar(255) | YES  |     | NULL    |       |
+| mid   | int          | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from employee_manager;
++-----+---------+------+
+| eid | name    | mid  |
++-----+---------+------+
+|   1 | Amit    |    4 |
+|   2 | Bhavana |    4 |
+|   3 | Chetan  |    5 |
+|   4 | Deepak  | NULL |
+|   5 | Ekta    | NULL |
+|   6 | Farhan  |    5 |
++-----+---------+------+
+6 rows in set (0.01 sec)
