@@ -1,0 +1,176 @@
+mysql> create table library
+    -> (Author_name varchar(30),
+    -> price int,
+    -> Customer_name varchar(20),
+    -> Customer_phone_number bigint,
+    -> Received_date date);
+Query OK, 0 rows affected (0.06 sec)
+
+
+1. Add a book_name attribute to the library table which takes a sequence of 
+character with maximum 50 characters. After Author_name
+
+mysql> alter table library
+    -> add book_name varchar(50)
+	after Author_name;
+
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(30) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| price                 | int         | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+
+
+2. Add a return_date attribute to the library table which accepts in the YYYY-
+MM-DD format after received_date
+
+mysql> alter table library
+    -> add Return_date date;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(30) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| price                 | int         | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
+| Return_date           | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+
+
+3. Add customer email column after customer phone number which can take 
+the combination of data update 25 characters
+
+mysql> alter table library
+    -> add Customer_email varchar(25)
+    -> after Customer_phone_number;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(30) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| price                 | int         | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Customer_email        | varchar(25) | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
+| Return_date           | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+
+4. Change the size of the author name which can contain maximum of 40 
+characters.
+
+mysql> alter table library
+    -> modify Author_name varchar(40);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(40) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| price                 | int         | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Customer_email        | varchar(25) | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
+| Return_date           | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+
+5. Change the price datatype from int to float.
+mysql> alter table library
+    -> modify price float;
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(40) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| price                 | float       | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Customer_email        | varchar(25) | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
+| Return_date           | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+6.Rename the price column name to book_price.
+mysql> alter table library
+    -> rename column price to Book_price;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(40) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| Book_price            | float       | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Customer_email        | varchar(25) | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
+| Return_date           | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+7. Remove the customer email column from the table.
+
+mysql> alter table library
+    -> drop Customer_email;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc library;
++-----------------------+-------------+------+-----+---------+-------+
+| Field                 | Type        | Null | Key | Default | Extra |
++-----------------------+-------------+------+-----+---------+-------+
+| Author_name           | varchar(40) | YES  |     | NULL    |       |
+| book_name             | varchar(50) | YES  |     | NULL    |       |
+| Book_price            | float       | YES  |     | NULL    |       |
+| Customer_name         | varchar(20) | YES  |     | NULL    |       |
+| Customer_phone_number | bigint      | YES  |     | NULL    |       |
+| Received_date         | date        | YES  |     | NULL    |       |
+| Return_date           | date        | YES  |     | NULL    |       |
++-----------------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+
+	
+
+
+	
+
+
+
+
